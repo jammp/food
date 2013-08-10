@@ -37,15 +37,27 @@
 					</div>
 					<table class="discount"><tbody>
 						<tr>
-							<th></th>
-							<th></th>
-							<th></th>
+							<th>原价</th>
+							<th>折扣</th>
+							<th>节省</th>
 						</tr>
-
+						<tr class="number">
+							<td><del>{$currency}${moneyit($first['market_price'])}</del></td>
+							<td>${team_discount($first)}折</td>
+							<td>{$currency}${moneyit($first['market_price']-$first['team_price'])}</td>
+						</tr>
 						<tr>
 							<td class="status-box" colspan="3">
 								<div id="deal-status-147271" class=" deal-status deal-status-open"><p class="deal-buy-tip-top"><strong>{$first['now_number']}</strong> 人已购买</p></div>
-
+								<div id="deal-timeleftfirst" curtime="{$now}000" diff="{$detail[$first['id']]['diff_time']}000" class="item-time">
+								<ul id="counterfirst">
+									<!--{if $detail[$first['id']]['left_day']>0}-->
+									<li><span>{$detail[$first['id']]['left_day']}</span>天</li><li><span>{$detail[$first['id']]['left_hour']}</span>小时</li><li><span>{$detail[$first['id']]['left_minute']}</span>分钟</li>
+									<!--{else}-->
+										<li><span>{$detail[$first['id']]['left_hour']}</span>小时</li><li><span>{$detail[$first['id']]['left_minute']}</span>分钟</li><li><span>{$detail[$first['id']]['left_time']}</span>秒</li>
+									<!--{/if}-->
+								</ul>
+								</div>
 							</td>
 						</tr>
 					</tbody></table>
@@ -90,24 +102,32 @@
 						</div>
 						<table class="discount"><tbody>
 							<tr>
-								<th><strong>{$team['now_number']}</strong></th>
-								<td class="price">人已购买</td>
+								<th>折扣</th>
+								<td class="price"><strong>{$currency}${moneyit($team['team_price'])}</strong></td>
 							</tr>
 							
 							<tr>
-								<th>&nbsp;</th>
-								<td>&nbsp;</td>
+								<th>折扣</th>
+								<td><del><strong>{$currency}${moneyit($team['market_price'])}</strong></del></td>
 							</tr>
 							<tr>
-								<th>&nbsp;</th>
-								<td>&nbsp;</td>
+								<th>折扣</th>
+								<td><strong>${team_discount($team)}折</strong></td>
 							</tr>
 						
 						</tbody></table>
-<!--
+						<div  id="deal-timeleft{$tindex}" curtime="{$now}000" diff="{$detail[$team['id']]['diff_time']}000" class="item-time">
+							<ul id="counter{$tindex}">
+							<!--{if $detail[$team['id']]['left_day']>0}-->
+								<li><span>{$detail[$team['id']]['left_day']}</span>天</li><li><span>{$detail[$team['id']]['left_hour']}</span>小时</li><li><span>{$detail[$team['id']]['left_minute']}</span>分钟</li>
+							<!--{else}-->
+								<li><span>{$detail[$team['id']]['left_hour']}</span>小时</li><li><span>{$detail[$team['id']]['left_minute']}</span>分钟</li><li><span>{$detail[$team['id']]['left_time']}</span>秒</li>
+							<!--{/if}-->
+							</ul>
+						</div>
 						<div id="deal-status-bjwdrj" class="deal-status deal-status-open">
 							<p class="deal-buy-tip-top"><strong>{$team['now_number']}</strong> 人已购买</p>
-						</div>-->
+						</div>
 						<!--<div class="clear"></div>-->
 					</div>
 					<div class="clear"></div>
