@@ -79,7 +79,7 @@ body.newbie{background-position:50% 326px;}
 #hd .vcoupon{position:absolute;top:0;right:0;width:300px;height:23px;padding:4px 20px 0;background:#515151;text-align:center;color:#3fcfd0;font-size:12px;}
 #hd .vcoupon a{color:#3fcfd0;}
 #hd .logins{position:absolute;top:115px;right:0;width:350px;dbackground:red;}
-#hd .nav li{float:left;}
+#hd .nav li{float:left;border:black 0px solid;border-collapse: collapse;}  /** change */
 #hd .nav li.current a{background:#33c5c8; color:#FFF;text-decoration:none;}
 #hd .nav a{float:left;height:42px;line-height:42px;color:#fff;padding:0 18px;font-size:16px;font-weight:bold;}
 #hd .nav a:hover, #hd .nav a.hover{background-color:#63c5c8;color:#328889;text-decoration:none;}
@@ -119,6 +119,12 @@ body.newbie{background-position:50% 326px;}
 #myaccount-menu li{width:150px;padding:5px 0;border-bottom:1px dashed #47abad;}
 #myaccount-menu li a{display:block;padding-left:20px;color:#eef9fd;}
 #myaccount-menu li a:hover{color:#0981be;text-decoration:none;}
+
+#preordermenu-menu{display:none;position:absolute;left:-10px;top:157px;padding:8px 0 8px;dborder:1px solid #76a045;border-top:0;font-weight:normal;font-size:14px;background-color:#63c5c8;}
+#preordermenu-menu li{width:150px;padding:5px 0;border-bottom:1px dashed #47abad;}
+#preordermenu-menu li a{display:block;padding-left:20px;color:#eef9fd;}
+#preordermenu-menu li a:hover{color:#0981be;text-decoration:none;}
+
 #ft{width:960px;margin:0 auto;}
 #ft .contact{height:58px;line-height:58px;font-weight:bold;text-align:right;}
 #ft .contact a{color:#fff;}

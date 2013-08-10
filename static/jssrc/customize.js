@@ -22,6 +22,12 @@ window.x_init_hook_myaccount = function() {
 	ma.hover(function(){ mm.show(); ma.toggleClass('hover', true); },function(){ var menuhide = function(){ mm.hide(); ma.toggleClass('hover', false); }; menuout=setTimeout(menuhide,100); });
 	mm.hover(function(){ clearTimeout(menuout);},function(){ jQuery(this).hide(); ma.toggleClass('hover', false); });
 };
+window.x_init_hook_preordermenu = function() {
+	var ma = jQuery('#preordermenu');
+	var mm = jQuery('#preordermenu-menu');
+	ma.hover(function(){ mm.show(); ma.toggleClass('hover', true); },function(){ var menuhide = function(){ mm.hide(); ma.toggleClass('hover', false); }; menuout=setTimeout(menuhide,100); });
+	mm.hover(function(){ clearTimeout(menuout);},function(){ jQuery(this).hide(); ma.toggleClass('hover', false); });
+};
 window.x_init_hook_click = function() {
 	jQuery("div:not(#guides-city-change)").click(function(){
 	jQuery('#guides-city-list').css('display', 'none');

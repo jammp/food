@@ -125,6 +125,18 @@ function current_account($selector='/account/settings.php') {
 	return current_link($selector, $a, true);
 }
 
+function my_current_menu($selector='default'){
+	$a = array(
+		'#default' => '8／4菜单',
+		'#a' => '8／5菜单',
+		'#b' => '8／6菜单',
+		'#c' => '8／7菜单',
+	);
+
+	return current_link($selector, $a, true);
+}
+
+
 function current_about($selector='us') {
 	global $INI;
 	$a = array(
