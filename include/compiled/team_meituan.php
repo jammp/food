@@ -74,16 +74,6 @@
 			</div>
 			<script>window.x_init_hook_multiclockfirst = function(){X.misc.multiclock('deal-timeleftfirst', 'counterfirst');};</script>
 		<?php }?>
-		<script language="javascript" >
-		$(function () {
-				var austDay = new Date();
-	austDay = new Date(2014, 11, 26);
-	$("#countdowntest").countdown({until: austDay});
-	});
-		</script>
-					<div id="countdowntest"></div>
-
-
 			<div class="secondary">
 			<?php if(is_array($teams)){foreach($teams AS $tindex=>$team) { ?>
 				<div class="item <?php if($tindex%2 == 0){?>odd<?php }?>">

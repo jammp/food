@@ -66,20 +66,22 @@
                             <label>QQ</label>
                             <input type="text" size="30" name="qq" id="settings-qq" class="number" value="<?php echo $login_user['qq']; ?>" />
                         </div>
+
+                        <!--
 						<div class="field city">
                             <label>所在城市</label>
 							<select name="city_id" class="f-city"><?php echo Utility::Option(Utility::OptionArray($allcities, 'id', 'name'), $login_user['city_id']); ?><option value='0'>其他</option></select>
-                        </div>
+                        </div>-->
 						<div class="wholetip clear"><h3>3、派送信息</h3></div>
                         <div class="field username">
-                            <label>真实姓名</label>
+                            <label>收件人姓名</label>
                             <input type="text" size="30" name="realname" id="settings-realname" class="f-input" value="<?php echo $login_user['realname']; ?>" />
-							<span class="hint">真实姓名请与有效证件姓名保持一致，便于收取物品</span>
+							<span class="hint">收件人姓名用于收取订餐</span>
                         </div>
                         <div class="field username">
                             <label>收件地址</label>
                             <input type="text" size="30" name="address" id="settings-address" class="f-input" value="<?php echo $login_user['address']; ?>" />
-                            <span class="hint">为了能及时收到物品，请按照格式填写：_省_市_县（区）_</span>
+                            <span class="hint">请详细填写，以便于您收到订餐</span>
                         </div>
 						                        <div class="field">
                             <label>邮政编码</label>

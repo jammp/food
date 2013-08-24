@@ -114,9 +114,9 @@ function current_coupon_sub($selector='index') {
 function current_account($selector='/account/settings.php') {
 	global $INI;
 	$a = array(
-		'/coupon/index.php' => '我的' . $INI['system']['couponname'],
+		//'/coupon/index.php' => '我的' . $INI['system']['couponname'],
 		'/order/index.php' => '我的订单',
-		'/account/refer.php' => '我的邀请',
+		//'/account/refer.php' => '我的邀请',
 		'/account/settings.php' => '账户信息',
 	);
 	if (option_yes('usercredit')) {

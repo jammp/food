@@ -24,13 +24,10 @@
 	<link href="<?php echo $INI['system']['wwwprefix']; ?>/feed.php?ename=<?php echo $city['ename']; ?>" rel="alternate" title="订阅更新" type="application/rss+xml" />
 	<link rel="shortcut icon" href="/static/icon/favicon.ico" />
 	<link rel="stylesheet" href="/static/css/index.css" type="text/css" media="screen" charset="utf-8" />
-	<link rel="stylesheet" href="/static/css/jquery.countdown.css" type="text/css" media="screen" charset="utf-8" />
 	<script type="text/javascript">var WEB_ROOT = '<?php echo WEB_ROOT; ?>';</script>
 	<script type="text/javascript">var LOGINUID= <?php echo abs(intval($login_user_id)); ?>;</script>
 	<script src="/static/js/index.js" type="text/javascript"></script>
-	<script src="/static/jssrc/jquery.countdown.js" type="text/javascript"></script>
-	<script src="/static/jssrc/jquery.countdown-zh-CN.js" type="text/javascript"></script>
-
+	
 	<?php echo Session::Get('script',true);; ?>
 </head>
 <body class="<?php echo $request_uri=='index'?'bg-alt':'newbie'; ?>">

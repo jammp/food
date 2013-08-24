@@ -1,6 +1,6 @@
 <?php
 $value = array (
-  'navcomment' => 'Y',
+  'navcomment' => 'N',
   'navpredict' => 'Y',
   'navpartner' => 'N',
   'navseconds' => 'N',
@@ -33,7 +33,7 @@ $value = array (
   'cateseconds' => 'N',
   'categoods' => 'N',
   'emailverify' => 'N',
-  'needmobile' => 'N',
+  'needmobile' => 'Y',
   'mobilecode' => 'N',
   'indexmulti' => 'Y',
   'indexpage' => 'Y',

@@ -34,6 +34,7 @@
 		<?php }?>
 		</div>
 		<ul class="nav cf"><?php include template("block_navigator");?></ul>
+		<ul id="preordermenu-menu"><?php echo my_current_menu(null); ?></ul>
 		<div class="logins">
 		<?php if($login_user){?>
 			<ul class="links">

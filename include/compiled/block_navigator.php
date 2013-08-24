@@ -1,7 +1,10 @@
-<li><a href="/">8/3菜单一览</a></li>
+<li>
+	<a href="/" id="preordermenu" >8/3菜单一览</a>
+</li>
+<!--
 <li>
 	<a href="/team/index.php">过往菜单</a>
-</li>
+</li>-->
 
 <?php if(option_yes('navcomment')){?>
 <li><a href="/team/comments.php">评价一下</a></li>
