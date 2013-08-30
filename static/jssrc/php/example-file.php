@@ -23,7 +23,7 @@ $script = file_get_contents($src);
 
 $t1 = microtime(true);
 
-$packer = new JavaScriptPacker($script, 'Normal', true, false);
+$packer = new JavaScriptPacker($script, 'None', true, false);
 $packed = $packer->pack();
 
 $t2 = microtime(true);
