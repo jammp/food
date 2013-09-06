@@ -9,7 +9,10 @@ $detail = array();
 foreach($teams AS $index => $team) {
 
 	if($team['end_time']<$team['begin_time']){$team['end_time']=$team['begin_time'];}
-	$diff_time = $left_time = $team['end_time']-$now;
+
+	//$diff_time = $left_time = $team['end_time']-$now;
+	$diff_time = $left_time = $_SESSION['datefrom']-$now;
+
 	if ( $team['team_type'] == 'seconds' && $team['begin_time'] >= $now ) {
 		$diff_time = $left_time = $team['begin_time']-$now;
 	}

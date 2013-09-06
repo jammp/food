@@ -10,8 +10,8 @@
                 <div class="sect">
                     <form id="login-user-form" method="post" action="/account/login.php" class="validator">
                         <div class="field email">
-                            <label for="login-email-address">Email／用户名</label>
-                            <input type="text" size="30" name="email" id="login-email-address" class="f-input" value="" require="true" datatype="require|limit" min="2" />
+                            <label for="login-email-address">手机号码</label>
+                            <input type="text" size="30" name="mobile" id="signup-mobile" class="number" require="<?php echo option_yes('needmobile')?'true':'require'; ?>" datatype="mobile" />
                         </div>
                         <div class="field password">
                             <label for="login-password">密码</label>

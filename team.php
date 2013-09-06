@@ -23,13 +23,16 @@ $discount_price = $team['market_price'] - $team['team_price'];
 $discount_rate = team_discount($team);
 
 $left = array();
-$now = time();
+$now=$_SESSION['datefrom'];
 
 if($team['end_time']<$team['begin_time']){$team['end_time']=$team['begin_time'];}
 
-$diff_time = $left_time = $team['end_time']-$now;
+//$diff_time = $left_time = $team['end_time']-$now;
+$diff_time = $left_time = $_SESSION['datefrom']-time();
+
 if ( $team['team_type'] == 'seconds' && $team['begin_time'] >= $now ) {
-	$diff_time = $left_time = $team['begin_time']-$now;
+	//$diff_time = $left_time = $team['begin_time']-$now;
+	$diff_time = $left_time = $_SESSION['datefrom']-time();
 }
 
 $left_day = floor($diff_time/86400);

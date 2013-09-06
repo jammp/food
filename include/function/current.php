@@ -111,7 +111,7 @@ function current_coupon_sub($selector='index') {
 	return current_link($l, $a);
 }
 
-function current_account($selector='/account/settings.php') {
+function current_account($selector='index') {
 	global $INI;
 	$a = array(
 		//'/coupon/index.php' => '我的' . $INI['system']['couponname'],
@@ -125,15 +125,30 @@ function current_account($selector='/account/settings.php') {
 	return current_link($selector, $a, true);
 }
 
-function my_current_menu($selector='default'){
+function my_current_menu($selector=''){
+	$datearr=array();
+	$now=date("Ymd");
+	array_push($datearr,strtotime($now." +1 day"));
+	array_push($datearr,strtotime($now." +2 day"));
+	array_push($datearr,strtotime($now." +3 day"));
+	array_push($datearr,strtotime($now." +4 day"));
+	array_push($datearr,strtotime($now." +5 day"));
+
 	$a = array(
-		'#default' => '8／4菜单',
-		'#a' => '8／5菜单',
-		'#b' => '8／6菜单',
-		'#c' => '8／7菜单',
+		'/index.php?datefrom='.$datearr[0] => date("n/j",$datearr[0]).' 菜单一览',
+		'/index.php?datefrom='.$datearr[1] => date("n/j",$datearr[1]).' 菜单一览',
+		'/index.php?datefrom='.$datearr[2] => date("n/j",$datearr[2]).' 菜单一览',
+		'/index.php?datefrom='.$datearr[3] => date("n/j",$datearr[3]).' 菜单一览',
+		'/index.php?datefrom='.$datearr[4] => date("n/j",$datearr[4]).' 菜单一览',
 	);
 
-	return current_link($selector, $a, true);
+	if(strcmp($selector,'')==0){
+		$selector=$datearr[0];
+	}
+
+	$l = "index.php?datefrom={$selector}";
+
+	return current_link($l, $a, true);
 }
 
 

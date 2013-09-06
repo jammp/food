@@ -1,13 +1,13 @@
-<!--{include header}-->
+<?php include template("header");?>
 <div id="bdw" class="bdw">
 <div id="bd" class="cf">
 <div id="content">
         <div id="signup" style="position:relative;">
         <div id="deal-buy-login">
-            <h3>已有{$INI['system']['abbreviation']}账户？</h3>
+            <h3>已有<?php echo $INI['system']['abbreviation']; ?>账户？</h3>
             <form action="/account/login.php" method="post" id="deal-buy-form-login" class="validator">
             <div id="deal-buy-login-form">
-                <p><span>手机号码</span><input type="text" size="30" name="mobile" id="signup-mobile" class="number" require="${option_yes('needmobile')?'true':'require'}" datatype="mobile" /></p>
+                <p><span>手机号码</span><input type="text" size="30" name="mobile" id="signup-mobile" class="number" require="<?php echo option_yes('needmobile')?'true':'require'; ?>" datatype="mobile" /></p>
 
                 <p><span>密码</span><input type="password" class="f-input" name="password" size="30" datatype="require" require="true" /></p>
                 <p class="act">
@@ -16,18 +16,18 @@
             </div>
             </form>
             <div class="alifast" style="margin:20px 0 0 50px">
-			<!--{if $INI['alipay']['alifast'] == 'Y'}-->
+			<?php if($INI['alipay']['alifast'] == 'Y'){?>
             <a href="/alifast/auth_authorize.php"><img src="/static/css/i/btn_login_zfbkj.png" /></a>&nbsp;
-			<!--{/if}-->
-			<!--{if option_yes('sinalogin')}-->
+			<?php }?>
+			<?php if(option_yes('sinalogin')){?>
 			<a href="/thirdpart/sina/login.php"><img src="/static/css/i/sina_login.png" /></a>&nbsp;
-			<!--{/if}-->
-			<!--{if option_yes('qqlogin')}-->
+			<?php }?>
+			<?php if(option_yes('qqlogin')){?>
 			<a href="/thirdpart/qq/index.php"><img src="/static/css/i/qq.png" /></a>
-            <!--{/if}-->
-			<!--{if option_yes('qzonelogin')}-->
+            <?php }?>
+			<?php if(option_yes('qzonelogin')){?>
 			<a href="/thirdpart/qzone/index.php"><img src="/static/css/i/qq.gif" /></a>
-            <!--{/if}-->
+            <?php }?>
 			</div>
         </div>
     </div>
@@ -40,7 +40,7 @@
                 <form action="/account/signup.php" method="post" id="deal-buy-form-signup" class="validator">
 					<div class="field">
 						<label for="signup-password-confirm">手机号码</label>
-						<input type="text" size="30" name="mobile" id="signup-mobile" class="number" require="${option_yes('needmobile')?'true':'require'}" datatype="mobile" /><span class="hint">手机号码用于{$INI['system']['couponname']}的短信通知</span>
+						<input type="text" size="30" name="mobile" id="signup-mobile" class="number" require="<?php echo option_yes('needmobile')?'true':'require'; ?>" datatype="mobile" /><span class="hint">手机号码用于<?php echo $INI['system']['couponname']; ?>的短信通知</span>
 					</div>
 					<div class="field password">
                         <label for="signup-password">密码</label>
@@ -65,4 +65,4 @@
 </div> <!-- bd end -->
 </div> <!-- bdw end -->
 
-<!--{include footer}-->
+<?php include template("footer");?>

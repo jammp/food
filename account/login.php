@@ -2,7 +2,7 @@
 require_once(dirname(dirname(__FILE__)) . '/app.php');
 
 if ( $_POST ) {
-	$login_user = ZUser::GetLogin($_POST['email'], $_POST['password']);
+	$login_user = ZUser::GetLogin($_POST['mobile'], $_POST['password']);
 	if ( !$login_user ) {
 		Session::Set('error', '登录失败');
 		redirect(WEB_ROOT . '/account/login.php');

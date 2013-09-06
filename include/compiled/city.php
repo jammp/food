@@ -1,4 +1,4 @@
-<!--{include header}-->
+<?php include template("header");?>
 
 <div id="bdw" class="bdw">
 <div id="bd" class="cf">
@@ -10,10 +10,10 @@
                 <div class="head"><h2>选择你所在的区域</h2></div>
                 <div class="sect">
 					<table id="orders-list" cellspacing="0" cellpadding="0" border="0" class="coupons-table">
-					<!--{loop $cities $letter $ones}-->	
-					<tr><td valign="top"><b>{$letter}</b></td>
-					<td valign="top"><p class="city_list" style="margin:0;"><!--{loop $ones $one}--><a href="/city.php?ename={$one['ename']}">{$one['name']}</a><!--{/loop}--></p></td></tr>
-					<!--{/loop}-->
+					<?php if(is_array($cities)){foreach($cities AS $letter=>$ones) { ?>	
+					<tr><td valign="top"><b><?php echo $letter; ?></b></td>
+					<td valign="top"><p class="city_list" style="margin:0;"><?php if(is_array($ones)){foreach($ones AS $one) { ?><a href="/city.php?ename=<?php echo $one['ename']; ?>"><?php echo $one['name']; ?></a><?php }}?></p></td></tr>
+					<?php }}?>
 					</table>
                 </div>
             </div>
@@ -21,10 +21,10 @@
         </div>
 	</div>
 	<div id="sidebar">
-		<!--{include block_side_business}-->
+		<?php include template("block_side_business");?>
 	</div>
 </div>
 </div> <!-- bd end -->
 </div> <!-- bdw end -->
 
-<!--{include footer}-->
+<?php include template("footer");?>

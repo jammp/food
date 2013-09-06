@@ -797,9 +797,12 @@ function verify_captcha($reason='none', $rurl=null) {
 	return true;
 }
 function current_team_category($gid='0') {
+
     global $city;
     $city_id = $city['id'];
-	$today = strtotime(date('Y-m-d'));
+
+	$today = $_SESSION['datefrom'];
+
 	$condition = array(
 		'team_type' => 'normal',
 		"begin_time <= '{$today}'",
@@ -815,11 +818,13 @@ function current_team_category($gid='0') {
 	foreach($categorys AS $id=>$name) {
 	    $condition['group_id'] = $id;
 	    $num= Table::Count('team', $condition);
-		if(option_yes('rewritecity')){
-			$a["/{$city['ename']}?gid=$id"] = $name.'('.$num.')';
-		}else{
-			$a["/index.php?gid=$id"] = $name.'('.$num.')';
-		}
+	    if($num!=0){
+			if(option_yes('rewritecity')){
+				$a["/{$city['ename']}?datefrom=$today&gid=$id"] = $name.'('.$num.')';
+			}else{
+				$a["/index.php?datefrom=$today&gid=$id"] = $name.'('.$num.')';
+			}
+	    }
 	}
 	if(option_yes('rewritecity')){
 		$l = "/{$city['ename']}?gid=$gid";

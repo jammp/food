@@ -16,7 +16,7 @@
 		<!--{include block_team_share}-->
 		<div id="content">
 			<div id="deal-intro" class="cf">
-                <h1><!--{if $team['close_time']==0}--><a class="deal-today-link" href="/team.php?id={$team['id']}">今日团购：</a><!--{/if}-->{$team['title']}</h1>
+                <h1><!--{if $team['close_time']==0}--><a class="deal-today-link" href="/team.php?id={$team['id']}">美餐：</a><!--{/if}-->{$team['title']}</h1>
                 <div class="main">
                     <div class="deal-buy">
                         <div class="deal-price-tag"></div>
@@ -25,7 +25,8 @@
 					<!--{elseif $team['close_time']}-->
                         <p class="deal-price"><strong <!--{if $team['team_price'] > 9999}-->class="digits5"<!--{/if}-->>{$currency}${moneyit($team['team_price'])}</strong><span class="deal-price-expire"></span></p>
 					<!--{else}-->
-                        <p class="deal-price"><strong <!--{if $team['team_price'] > 9999}-->class="digits5"<!--{/if}-->>{$currency}${moneyit($team['team_price'])}</strong><span><a ${$team['begin_time']<time()?'href="/team/buy.php?id='.$team['id'].'"':''}><img src="/static/css/i/button-deal-buy.gif" /></a></span></p>
+                        <p class="deal-price"><strong <!--{if $team['team_price'] > 9999}-->class="digits5"<!--{/if}-->>{$currency}${moneyit($team['team_price'])}</strong><span><a ${$team['begin_time']<time()+432000?'href="/team/buy.php?id='.$team['id'].'"':''}>
+                        	${$team['begin_time']<time()+432000?'<img src="/static/css/i/button-deal-buy.gif" />':''}</a></span></p>
 					<!--{/if}-->
                     </div>
                     <table class="deal-discount">
@@ -65,7 +66,7 @@
 						<div class="progress-pointer" style="padding-left:{$bar_size-$bar_offset}px;"><span></span></div>
 						<div class="progress-bar"><div class="progress-left" style="width:{$bar_size-$bar_offset}px;"></div><div class="progress-right "></div></div>
 						<div class="cf"><div class="min">0</div><div class="max">{$team['min_number']}</div></div>
-						<p class="deal-buy-tip-btm">还差 <strong>{$team['min_number']-$team['now_number']}</strong> 人到达最低团购人数</p>
+						<p class="deal-buy-tip-btm">还差 <strong>{$team['min_number']-$team['now_number']}</strong> 人到达最低送餐人数</p>
 					</div>
 					<!--{else}-->
 					<div class="deal-box deal-status deal-status-open" id="deal-status">
@@ -75,7 +76,7 @@
 					<!--{/if}-->
 						<p class="deal-buy-on" style="line-height:200%;"><img src="/static/css/i/deal-buy-succ.gif"/> 团购成功！ <!--{if $team['max_number']>$team['now_number']||$team['max_number']==0}--><br/>还可以继续购买<!--{/if}--></p>
 					<!--{if $team['reach_time']}-->
-						<p class="deal-buy-tip-btm">${date('G点i分', $team['reach_time'])}达到最低团购人数：<strong>{$team['min_number']}</strong>人</p>
+						<p class="deal-buy-tip-btm">${date('G点i分', $team['reach_time'])}达到最低送餐人数：<strong>{$team['min_number']}</strong>人</p>
 					<!--{/if}-->
 					</div>
 					<!--{/if}-->
@@ -148,7 +149,7 @@
 
                         <div class="clear"></div>
                     </div>
-					<!--{if ($team['state']!='soldout') && !$team['close_time'] }-->					<div class="deal-buy-bottom" style=" background-color: #DDF1F5;clear: both;padding: 30px 268px;border-left:2px solid #89B4D5;border-right:2px solid #89B4D5;border-bottom:2px solid #89B4D5;">
+					<!--{if ($team['state']!='soldout') && !$team['close_time'] && $team['begin_time']<time()+432000}--><div class="deal-buy-bottom" style=" background-color: #DDF1F5;clear: both;padding: 30px 268px;border-left:2px solid #89B4D5;border-right:2px solid #89B4D5;border-bottom:2px solid #89B4D5;">
 						<a class="pngfix" href="/team/buy.php?id={$team['id']}" rel="nofollow" >抢购</a>
 					</div>
 					<!--{else}-->

@@ -13,10 +13,10 @@
 				<h2>{$city['name']}</h2>
 			</div>
 			<!--{if count($hotcities)>1}-->
-			<div id="guides-city-change" class="change">切换城市</div>
+			<div id="guides-city-change" class="change">切换区域</div>
 			<div id="guides-city-list" class="city-list">
 				<ul>${current_city($city['ename'], $hotcities)}</ul>
-				<div class="other"><a href="/city.php">其他城市？</a></div>
+				<div class="other"><a href="/city.php">其他区域？</a></div>
 			</div>
 			<!--{/if}-->
 		</div>
@@ -34,14 +34,14 @@
 		<!--{/if}-->
 		</div>
 		<ul class="nav cf"><!--{include block_navigator}--></ul>
-		<ul id="preordermenu-menu">${my_current_menu(null)}</ul>
+		<ul id="preordermenu-menu">${my_current_menu($_SESSION["datefrom"])}</ul>
 		<div class="logins">
 		<!--{if $login_user}-->
 			<ul class="links">
 				<li class="username">欢迎您，<!--{if $_SESSION['ali_token']}-->
-				${mb_strimwidth($login_user['realname'],0,10)}！
+				${mb_strimwidth($login_user['realname'],0,10)}
                 <!--{else}-->
-				${mb_strimwidth($login_user['username'],0,10)}！
+				${mb_strimwidth($login_user['mobile'],0,11)}
 				<!--{/if}--></li>
 				<li class="account"><a href="/order/index.php" id="myaccount" class="account">我的{$INI['system']['abbreviation']}</a></li>
 				<li class="logout"><a href="/account/logout.php">退出</a></li>

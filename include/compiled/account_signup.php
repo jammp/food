@@ -10,16 +10,12 @@
                 <div class="head"><h2>注册</h2><span>&nbsp;或者 <a href="/account/login.php">登录</a></span></div>
                 <div class="sect">
                     <form id="signup-user-form" method="post" action="/account/signup.php" class="validator">
-                        <div class="field email">
-                            <label for="signup-email-address">Email</label>
-                            <input type="text" size="30" name="email" id="signup-email-address" class="f-input" value="<?php echo $_POST['email']; ?>" require="true" datatype="email|ajax" url="<?php echo WEB_ROOT; ?>/ajax/validator.php" vname="signupemail" msg="Email格式不正确|Email已经被注册" /> 
-                            <span class="hint">用于登录及找回密码，不会公开，请放心填写</span>
+                        <?php if(!option_yes('mobilecode')){?>
+                        <div class="field">
+                            <label for="signup-password-confirm">手机号码</label>
+                            <input type="text" size="30" name="mobile" id="signup-mobile" class="number" require="<?php echo option_yes('needmobile')?'true':'require'; ?>" datatype="mobile|ajax" url="<?php echo WEB_ROOT; ?>/ajax/validator.php" vname="signupmobile" msg="手机号码不正确|手机号码已经被注册" /><span class="inputtip">手机号码是我们联系您的最重要方式，并用于<?php echo $INI['system']['couponname']; ?>的短信通知</span>
                         </div>
-                        <div class="field username">
-                            <label for="signup-username">用户名</label>
-                            <input type="text" size="30" name="username" id="signup-username" class="f-input" value="<?php echo $_POST['username']; ?>" datatype="limit|ajax" require="true" min="2" max="16" maxLength="16" url="<?php echo WEB_ROOT; ?>/ajax/validator.php" vname="signupname" msg="用户名长度受限|用户名已经被使用" />
-                            <span class="hint">填写4-16个字符，一个汉字为两个字符</span>
-                        </div>
+                        <?php }?>
                         <div class="field password">
                             <label for="signup-password">密码</label>
                             <input type="password" size="30" name="password" id="signup-password" class="f-input" require="true" datatype="require" />
@@ -29,12 +25,6 @@
                             <label for="signup-password-confirm">确认密码</label>
                             <input type="password" size="30" name="password2" id="signup-password-confirm" class="f-input" require="true" datatype="compare" compare="signup-password" />
                         </div>
-                        <?php if(!option_yes('mobilecode')){?>
-                        <div class="field">
-                            <label for="signup-password-confirm">手机号码</label>
-                            <input type="text" size="30" name="mobile" id="signup-mobile" class="number" require="<?php echo option_yes('needmobile')?'true':'require'; ?>" datatype="mobile|ajax" url="<?php echo WEB_ROOT; ?>/ajax/validator.php" vname="signupmobile" msg="手机号码不正确|手机号码已经被注册" /><span class="inputtip">手机号码是我们联系您的最重要方式，并用于<?php echo $INI['system']['couponname']; ?>的短信通知</span>
-                        </div>
-                        <?php }?>
 					<?php if(option_yes('verifyregister')){?>
 						<?php include template("block_block_captcha");?>
 					<?php }?>

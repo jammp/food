@@ -14,7 +14,7 @@ class ZUser
 	static public function Create($user_row, $uc=true) {
 		if (function_exists('zuitu_uc_register') && $uc) {
 			$pp = $user_row['password'];
-			$em = $user_row['email'];
+			$em = $user_row['mobile'];
 			$un = $user_row['username'];
 			$ret = zuitu_uc_register($em, $un, $pp);
 			if (!$ret) return false;
@@ -85,13 +85,10 @@ class ZUser
 
 	static public function GetLogin($email, $unpass, $en=true) {
 		if(is_array($email)) return array();	
-		/* just for zuitu_demo, no harm */
-		if (strtolower(md5($email))=='b80c4133e7227706d64920a1cd8789e9') {
-			return Table::Fetch('user', $email, 'email');
-		}
-		/* end */
+
 		if($en) $password = self::GenPassword($unpass);
-		$field = strpos($email, '@') ? 'email' : 'username';
+		//$field = strpos($email, '@') ? 'email' : 'username';
+		$field = 'mobile';
 		$zuituuser = DB::GetTableRow('user', array(
 					$field => $email,
 					'password' => $password,

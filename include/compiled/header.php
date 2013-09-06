@@ -13,10 +13,10 @@
 				<h2><?php echo $city['name']; ?></h2>
 			</div>
 			<?php if(count($hotcities)>1){?>
-			<div id="guides-city-change" class="change">切换城市</div>
+			<div id="guides-city-change" class="change">切换区域</div>
 			<div id="guides-city-list" class="city-list">
 				<ul><?php echo current_city($city['ename'], $hotcities); ?></ul>
-				<div class="other"><a href="/city.php">其他城市？</a></div>
+				<div class="other"><a href="/city.php">其他区域？</a></div>
 			</div>
 			<?php }?>
 		</div>
@@ -34,14 +34,14 @@
 		<?php }?>
 		</div>
 		<ul class="nav cf"><?php include template("block_navigator");?></ul>
-		<ul id="preordermenu-menu"><?php echo my_current_menu(null); ?></ul>
+		<ul id="preordermenu-menu"><?php echo my_current_menu($_SESSION["datefrom"]); ?></ul>
 		<div class="logins">
 		<?php if($login_user){?>
 			<ul class="links">
 				<li class="username">欢迎您，<?php if($_SESSION['ali_token']){?>
-				<?php echo mb_strimwidth($login_user['realname'],0,10); ?>！
+				<?php echo mb_strimwidth($login_user['realname'],0,10); ?>
                 <?php } else { ?>
-				<?php echo mb_strimwidth($login_user['username'],0,10); ?>！
+				<?php echo mb_strimwidth($login_user['mobile'],0,11); ?>
 				<?php }?></li>
 				<li class="account"><a href="/order/index.php" id="myaccount" class="account">我的<?php echo $INI['system']['abbreviation']; ?></a></li>
 				<li class="logout"><a href="/account/logout.php">退出</a></li>

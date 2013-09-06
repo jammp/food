@@ -122,6 +122,7 @@ body.newbie{background-position:50% 326px;}
 
 #preordermenu-menu{display:none;position:absolute;left:-10px;top:157px;padding:8px 0 8px;dborder:1px solid #76a045;border-top:0;font-weight:normal;font-size:14px;background-color:#63c5c8;}
 #preordermenu-menu li{width:150px;padding:5px 0;border-bottom:1px dashed #47abad;}
+#preordermenu-menu li.current a{background:#666;color:#f1f1f1;}
 #preordermenu-menu li a{display:block;padding-left:20px;color:#eef9fd;}
 #preordermenu-menu li a:hover{color:#0981be;text-decoration:none;}
 

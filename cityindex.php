@@ -6,12 +6,14 @@ $group_id = abs(intval($_GET['gid']));
 
 if (option_yes('indexmulti')&& option_yes('indexpage')) {
 	$city_id = abs(intval($city['id']));
-	$now = time();
+	//$now = time();
+	$now=$_SESSION['datefrom'];
+
 	$size = abs(intval($INI['system']['indexteam']));
 	if ($size<=1) return current_team($city_id);
 	$condition = array( 
 			'team_type' => 'normal',
-			"begin_time < '{$now}'",
+			"begin_time <= '{$now}'",
 			"end_time > '{$now}'",
 			);
 	if($group_id) $condition['group_id']=$group_id;

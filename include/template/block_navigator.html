@@ -1,5 +1,6 @@
 <li>
-	<a href="/" id="preordermenu" >8/3菜单一览</a>
+	<a href="/" id="preordermenu" >
+	<?php echo date('n/j',$_SESSION['datefrom']) ?> 菜单一览</a>
 </li>
 <!--
 <li>
